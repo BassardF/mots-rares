@@ -22,9 +22,13 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
+    "@types/react-modal": "^3.10.5",
     "@types/styled-components": "^5.1.0",
+    "firebase": "^7.15.1",
+    "formik": "^2.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-modal": "^3.11.2",
     "styled-components": "^5.1.0"
   }
 }

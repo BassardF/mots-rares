@@ -1,10 +1,7 @@
 const BASE_SPACING = 4;
 
-type Multiplier = 1 | 2 | 3 | 4 | 5;
+type Multiplier = number;
 
 const getSpacing = (multiplier: Multiplier) => multiplier * BASE_SPACING;
 
-export {
-    getSpacing,
-    Multiplier,
-};
+export { getSpacing, Multiplier };
