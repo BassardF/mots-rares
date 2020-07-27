@@ -12,7 +12,6 @@ interface Props {
 }
 
 const StyledLPTitle = styled.div`
-  font-family: robotolight;
   font-size: ${getSize("xl")}px;
   color: ${CLEAR};
   background-color: ${DARK};
@@ -23,15 +22,15 @@ const StyledLPTitle = styled.div`
 const Arrow = styled.div`
   width: 0;
   height: 0;
-  border-bottom: 52px solid transparent;
-  border-left: 52px solid ${DARK};
+  border-bottom: 47px solid transparent;
+  border-left: 47px solid ${DARK};
 `;
 
 const ReverseArrow = styled.div`
   width: 0;
   height: 0;
-  border-top: 52px solid transparent;
-  border-right: 52px solid ${DARK};
+  border-top: 47px solid transparent;
+  border-right: 47px solid ${DARK};
 `;
 
 const LPTitle = ({ title, description, side }: Props) =>

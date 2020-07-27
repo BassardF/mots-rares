@@ -1,45 +1,55 @@
 import * as React from "react";
 import Card from "../../styleguide/Card";
-import ActionButton from "../../styleguide/ActionButton";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Button from "@material-ui/core/Button";
 
 import Entry from "../../../models/Entry";
 
 import entries from "../../../data/entries.json";
 
-const entriesArray: { [key: string]: Entry } = entries;
-const entriesKeys: Array<string> = Object.keys(entriesArray);
-const getRandomEntry: () => Entry = () =>
-  entriesArray[entriesKeys[Math.floor(Math.random() * entriesKeys.length)]];
+const entriesObject: { [key: string]: Entry } = entries;
+const entriesKeys: Array<string> = Object.keys(entriesObject);
+
+const getRandomEntry: (seenIds: Array<number>) => Entry = (seenIds) => {
+  const filteredEntriesKeys = entriesKeys.filter(
+    (entryKey) => !seenIds.includes(+entryKey)
+  );
+  const index = Math.floor(Math.random() * filteredEntriesKeys.length + 1);
+  return entriesObject[index];
+};
 
 interface Props {
-  openRegister: () => void;
+  openWaitingList: () => void;
 }
-const CardSection = ({ openRegister }: Props) => {
-  const [entry, setEntry] = React.useState(getRandomEntry());
+
+const CardSection = ({ openWaitingList }: Props) => {
+  const [seenEntries, setSeenEntries] = React.useState<Array<number>>([]);
+  const [entry, setEntry] = React.useState(getRandomEntry(seenEntries));
   return (
     <Card
       center
       entry={entry}
-      entriesCount={20}
+      entriesCount={entriesKeys.length}
       actions={[
-        <ActionButton
-          onClick={() => {
-            setEntry(getRandomEntry());
-          }}
-          key="random"
-          icon="random"
+        <ButtonGroup
+          color="primary"
+          aria-label="outlined primary button group"
+          size="small"
         >
-          Aleatoire
-        </ActionButton>,
-        <ActionButton
-          onClick={() => {
-            openRegister();
-          }}
-          key="heart"
-          icon="heart"
-        >
-          Sauvegarder
-        </ActionButton>,
+          <Button
+            onClick={() => {
+              const entries = seenEntries.concat([entry.id]);
+              if (entries.length === entriesKeys.length) {
+                openWaitingList();
+              } else {
+                setSeenEntries(entries);
+                setEntry(getRandomEntry(entries));
+              }
+            }}
+          >
+            Mot suivant
+          </Button>
+        </ButtonGroup>,
       ]}
     />
   );

@@ -10,12 +10,13 @@ interface Props {
   color?: string;
   bold?: boolean;
   uppercase?: boolean;
+  onClick?: (event: React.SyntheticEvent) => void;
 }
 
 const StyledHeader = styled.div`
-    font-family: robotolight;
     font-size: ${({ size = "m" }: Props) => getSize(size)}px;
     ${({ align = "left" }: Props) => `text-align: ${align};`}
+    ${({ onClick }: Props) => (onClick ? `cursor:pointer;` : "")}
     ${({ uppercase }: Props) =>
       uppercase
         ? `
@@ -36,6 +37,7 @@ const Header = ({
   bold,
   uppercase,
   children,
+  onClick,
 }: Props) => (
   <StyledHeader
     color={color}
@@ -43,6 +45,7 @@ const Header = ({
     align={align}
     bold={bold}
     uppercase={uppercase}
+    onClick={onClick}
   >
     {children}
   </StyledHeader>

@@ -26,7 +26,6 @@ interface StyledTextProps {
 const StyledText = styled.div`
   font-size: ${({ size }: StyledTextProps) => getSize(size)}px;
   color: ${({ color }: StyledTextProps) => color};
-  font-family: libre_baskervilleregular;
   letter-spacing: 0.5px;
   ${({ align }: StyledTextProps) => `text-align: ${align};`}
   ${({ bold }: StyledTextProps) => `font-weight: ${bold ? "bold" : "normal"};`}

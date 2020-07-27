@@ -1,8 +1,9 @@
 import * as React from "react";
+import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import Grid from "@material-ui/core/Grid";
 import Header from "../../styleguide/Header";
 import Spacer from "../../styleguide/Spacer";
-import Button from "../../styleguide/Button";
 import { getSpacing } from "../../../constants/spacing";
 
 const CenterBloc = styled.div`
@@ -18,7 +19,11 @@ const ContributeSection = () => {
         Notre collection croît grace à vous
       </Header>
       <Spacer spacing={4} />
-      <Button centered>Proposez un mot</Button>
+      <Grid container justify="center">
+        <Button variant="contained" color="primary" size="large">
+          Proposez un mot
+        </Button>
+      </Grid>
     </CenterBloc>
   );
 };

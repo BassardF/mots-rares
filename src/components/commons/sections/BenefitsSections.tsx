@@ -1,12 +1,12 @@
 import * as React from "react";
+
 import styled from "styled-components";
 import Flex from "../../styleguide/Flex";
-import Header from "../../styleguide/Header";
-import Text from "../../styleguide/Text";
 import Image from "../../styleguide/Image";
 import Spacer from "../../styleguide/Spacer";
 import { getSpacing } from "../../../constants/spacing";
-import { GREY } from "../../../constants/colors";
+
+import Typography from "@material-ui/core/Typography";
 
 const TextBloc = styled.div`
   padding: ${getSpacing(10)}px;
@@ -18,14 +18,14 @@ const BenefitsSections = () => {
     <>
       <Flex justifyContent="center">
         <TextBloc>
-          <Header size="l" bold uppercase>
+          <Typography variant="h4" align="left" gutterBottom>
             Votre propre collection
-          </Header>
+          </Typography>
           <Spacer spacing={1} />
-          <Text size="s" color={GREY} align="justify">
+          <Typography variant="body1" align="left" gutterBottom>
             Sauvegardez les mots qui vous interessent pour concevoir votre
             propre liste.
-          </Text>
+          </Typography>
         </TextBloc>
         <div>
           <Image
@@ -43,25 +43,25 @@ const BenefitsSections = () => {
           />
         </div>
         <TextBloc>
-          <Header size="l" bold uppercase>
+          <Typography variant="h4" align="left" gutterBottom>
             Accedez au dictionnaire
-          </Header>
+          </Typography>
           <Spacer spacing={1} />
-          <Text size="s" color={GREY} align="justify">
+          <Typography variant="body1" align="left" gutterBottom>
             Parcourir alphabetiquement notre collection
-          </Text>
+          </Typography>
         </TextBloc>
       </Flex>
       <Spacer spacing={8} />
       <Flex justifyContent="center">
         <TextBloc>
-          <Header size="l" bold uppercase>
+          <Typography variant="h4" align="left" gutterBottom>
             Acceder a l'ensemble de notre collection
-          </Header>
+          </Typography>
           <Spacer spacing={1} />
-          <Text size="s" color={GREY} align="justify">
+          <Typography variant="body1" align="left" gutterBottom>
             Avec l'outil aleatoire.
-          </Text>
+          </Typography>
         </TextBloc>
         <div>
           <Image
